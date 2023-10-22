@@ -74,6 +74,26 @@ local TeleportButton3 = Tab2:CreateButton({
    end,
 })
 
+local TeleportButton4 = Tab2:CreateButton({
+   Name = "Plate Teleport",
+   Callback = function()
+    local Plate = workspace.Arena.Plate
+
+    local Player = game.Players.LocalPlayer
+    Player.Character.HumanoidRootPart.CFrame = Plate.CFrame
+   end,
+})
+
+local TeleportButton5 = Tab2:CreateButton({
+   Name = "Brazil Teleport (Kicks You)",
+   Callback = function()
+    local Brazil = game.workspace.Lobby.brazil.portal
+
+    local Player = game.Players.LocalPlayer
+    Player.Character.HumanoidRootPart.CFrame = Brazil.CFrame
+   end,
+})
+
 local AntiVoidToggle = Tab2:CreateToggle({
    Name = "Anti-Void Toogle",
    CurrentValue = false,
