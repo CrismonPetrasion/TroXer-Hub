@@ -26,7 +26,73 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Ingridients", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Alchemist Ingridients", 4483362458) -- Title, Image
+local Tab2 = Window:CreateTab("Misc", 4483362458) -- Title, Image
+
+local TeleportButton = Tab2:CreateButton({
+   Name = "Main Island Teleport",
+   Callback = function()
+    local PartTeleport = Instance.new("Part", workspace)
+    PartTeleport.Name = "MainIslandPart"
+    PartTeleport.CFrame = CFrame.new(0,0,200)
+    PartTeleport.Anchored = true
+    PartTeleport.CanCollide = false
+    PartTeleport.Transparency = 1
+
+    local Player = game.Players.LocalPlayer
+    Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame
+   end,
+})
+
+local TeleportButton2 = Tab2:CreateButton({
+   Name = "Slapple Island Teleport",
+   Callback = function()
+    local PartTeleport = Instance.new("Part", workspace)
+    PartTeleport.Name = "SlappleIslandPart"
+    PartTeleport.CFrame = CFrame.new(-400,50,-15)
+    PartTeleport.Anchored = true
+    PartTeleport.CanCollide = false
+    PartTeleport.Transparency = 1
+
+    local Player = game.Players.LocalPlayer
+    Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame
+   end,
+})
+
+local TeleportButton3 = Tab2:CreateButton({
+   Name = "Moai Island Teleport",
+   Callback = function()
+    local PartTeleport = Instance.new("Part", workspace)
+    PartTeleport.Name = "MoaiIslandPart"
+    PartTeleport.CFrame = CFrame.new(200,0,0)
+    PartTeleport.Anchored = true
+    PartTeleport.CanCollide = false
+    PartTeleport.Transparency = 1
+
+    local Player = game.Players.LocalPlayer
+    Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame
+   end,
+})
+
+local AntiVoidToggle = Tab2:CreateToggle({
+   Name = "Anti-Void Toogle",
+   CurrentValue = false,
+   Flag = "AntiVoid1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      if Value == false then
+         Value = true
+         local Part = Instance.new("Part", workspace)
+         Part.Name = "AntiVoid"
+         Part.Size = Vector3.new(1000,3,1000)
+         Part.CFrame = CFrame.new(0,-10,0)
+         Part.Anchored = true
+         Part.Transparency = 0.7
+      else
+         Value = false
+         local PartDestroyer = workspace.AntiVoid:Destroy()
+      end
+   end,
+})
 
 local Button = Tab:CreateButton({
    Name = "Elder Wood +5",
