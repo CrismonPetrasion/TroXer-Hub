@@ -1,8 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "TroXer Hub",
-   LoadingTitle = "TroXer Hub is Loading",
+   Name = "🎃 TroXer Hub",
+   LoadingTitle = "🎃 TroXer Hub is Loading",
    LoadingSubtitle = "By ArteeSo",
    ConfigurationSaving = {
       Enabled = true,
@@ -16,9 +16,9 @@ local Window = Rayfield:CreateWindow({
    },
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "TroXer Hub",
-      Subtitle = "Key System",
-      Note = "Join The Discord {https://discord.gg/H3M8x54QjN}",
+      Title = "🎃 TroXer Hub",
+      Subtitle = "🎃 Key System",
+      Note = "🎃 Join The Discord {https://discord.gg/H3M8x54QjN}",
       FileName = "Enter Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
@@ -28,6 +28,28 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Alchemist Ingridients", 4483362458) -- Title, Image
 local Tab2 = Window:CreateTab("Misc", 4483362458) -- Title, Image
+local Tab3 = Window:CreateTab("Halloween Update", 4483362458)
+
+local TeleportButton = Tab3:CreateButton({
+   Name = "Candy Farm",
+   Callback = function()
+      _G.Condition = true -- true turns it on, false turns it off
+      while _G.Condition == true do
+      local children = game.Workspace.CandyCorns:GetChildren()
+      for _, child in pairs(children) do
+      for _, child in pairs(child:GetChildren()) do
+       table.insert(children, child)
+      end
+
+      if child:IsA("Part") then
+         child.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+   end
+end
+wait()
+end
+   end,
+})
+
 
 local TeleportButton = Tab2:CreateButton({
    Name = "Main Island Teleport",
@@ -137,7 +159,7 @@ local Button2 = Tab:CreateButton({
 })
 
 local Button3 = Tab:CreateButton({
-   Name = "Autumn Spout",
+   Name = "Autumn Spout +5",
    Callback = function()
     local args = {
     [1] = "AddItem",
